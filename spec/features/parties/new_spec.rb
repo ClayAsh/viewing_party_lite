@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "create party page" do 
-  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com" ) }
-  let!(:user_2) { User.create!(name: "Hank", email: "hank@zmail.com" ) } 
-  let!(:user_3) { User.create!(name: "Tom", email: "tom@zmail.com") }
+  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com", password: "password" ) }
+  let!(:user_2) { User.create!(name: "Hank", email: "hank@zmail.com", password: "password" ) } 
+  let!(:user_3) { User.create!(name: "Tom", email: "tom@zmail.com", password: "password") }
   let!(:movie_id) { 453395 }
 
   it "has a form to create party that will be displayed on all invited users dashboards", :vcr do 

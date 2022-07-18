@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Disover index page' do 
-  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com" ) }
+  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com", password: "password" ) }
 
   it 'has button to discover top rated movies', :vcr do 
     visit user_discover_index_path(user_1.id)

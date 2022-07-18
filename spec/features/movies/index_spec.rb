@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Movie index" do 
-  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com" ) }
+  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com", password: "password" ) }
   let!(:movie_id) { 453395 }
   it 'has movie title and vote average of movie', :vcr do 
     visit user_movies_path(user_1.id)

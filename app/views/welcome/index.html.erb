@@ -2,6 +2,8 @@
 
 <%= button_to 'Register', registration_path, method: :get %>
 
+<%= link_to 'Log In', '/login' %>
+
 <h5>Current Users:</h5>
 <% @users.each do |user| %>
 <%= link_to user.name, user_path(user.id) %></br>

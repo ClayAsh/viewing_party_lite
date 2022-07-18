@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "User Dashboard" do 
-  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com" ) }
-  let!(:user_2) { User.create!(name: "Hank", email: "hank@zmail.com" ) } 
-  let!(:user_3) { User.create!(name: "Tom", email: "tom@zmail.com") }
+  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com", password: "password" ) }
+  let!(:user_2) { User.create!(name: "Hank", email: "hank@zmail.com", password: "password" ) } 
+  let!(:user_3) { User.create!(name: "Tom", email: "tom@zmail.com", password: "password") }
 
   let!(:vp_1) { user_1.parties.create!(duration: 101, date: Date.new(2022,07,20), start_time: '15:00:00', host: user_1.id, movie_id: 123, movie_title: "Doctor Strange in the Multiverse of Madness" )}
   let!(:vp_2) { user_2.parties.create!(duration: 101, date: Date.new(2022,07,21), start_time: '16:00:00', host: user_2.id, movie_id: 345, movie_title: "Strange Brew" )}

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'movies show page' do
-  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com" ) }
+  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com", password: "password" ) }
   let!(:movie_id) { 453395 }
 
   it 'can see a button for creating view party and to return to discover page', :vcr do

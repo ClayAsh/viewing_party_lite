@@ -13,9 +13,9 @@ RSpec.describe Party, type: :model do
 
   # it { should validate_numericality_of(:height).is_greater_than_or_equal_to(movie_duration) } 
 
-  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com" ) }
-  let!(:user_2) { User.create!(name: "Hank", email: "hank@zmail.com" ) } 
-  let!(:user_3) { User.create!(name: "Tom", email: "tom@zmail.com") }
+  let!(:user_1) { User.create!(name: "Sam", email: "sam@zmail.com", password: "password" ) }
+  let!(:user_2) { User.create!(name: "Hank", email: "hank@zmail.com", password: "password" ) } 
+  let!(:user_3) { User.create!(name: "Tom", email: "tom@zmail.com", password: "password") }
   
   let!(:vp_1) { user_1.parties.create!(duration: 101, date: Date.new(2022,07,20), start_time: '15:00:00', host: user_1.id, movie_id: 453395, movie_title: "Doctor Strange in the Multiverse of Madness" )}
 
