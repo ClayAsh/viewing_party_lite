@@ -7,13 +7,22 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  
-  delete '/logout', to: 'sessions#destroy'
 
+  delete '/logout', to: 'sessions#destroy'
 
   get '/dashboard', to: 'users#show'
 
+  namespace :admin do 
+    get '/dashboard', to: 'dashboard#index'
+    resources :users, only: %i[show]
+  end
+
   get '/discover', to: 'discover#index'
+  # namespace :discover do 
+  #   resources :movies, only: %i[index show] do 
+  #     resources :parties, only: %i[new create]
+  #   end
+  # end
 
   get '/discover/movies', to: 'movies#index'
 
