@@ -1,5 +1,5 @@
 <h3><%= @movie.title %></h3>
-<%= form_with model: @party, url: user_movie_parties_path(@user.id, @movie.id), method: :post, local: true do |f| %>
+<%= form_with model: @party, url: "/discover/movies/#{@movie.id}/parties", method: :post, local: true do |f| %>
   <%= f.label :duration %>
   <%= f.number_field :duration %>
   <%= f.label :date %>
@@ -14,3 +14,5 @@
   <%end%>
   <%= f.submit "Create Party" %>
 <% end %>
+
+"/discover/movies/#{@movie.id}/parties"

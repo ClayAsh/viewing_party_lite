@@ -20,21 +20,24 @@ RSpec.describe "User Dashboard" do
   let!(:movie) { MovieFacade.search_by_id(453395) }
 
   it "Has users name in heading", :vcr do 
-    visit user_path(user_1.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
+    visit dashboard_path
 
     expect(page).to have_content("#{user_1.name}'s Dashboard")
   end
 
   it "has button to discover movies", :vcr do 
-    visit user_path(user_1.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
+    visit dashboard_path
 
     click_button "Discover Movies"
 
-    expect(current_path).to eq(user_discover_index_path(user_1.id))
+    expect(current_path).to eq(discover_movies_path)
   end
 
   it "has section that shows viewing parties invited to", :vcr do 
-    visit user_path(user_2.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_2)
+    visit dashboard_path
 
     expect(page).to have_content("Viewing Party Invitations")
 
@@ -59,7 +62,8 @@ RSpec.describe "User Dashboard" do
   end
 
   it 'has section that shows viewing parties user is hosting', :vcr do 
-    visit user_path(user_1.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
+    visit dashboard_path
 
     expect(page).to have_content("Viewing Parties I am Hosting")
 
